@@ -19,7 +19,8 @@ def store_message(bot, trigger):
         return plugin.NOLIMIT
 
     with open(_storage_filename(bot), 'a') as f:
-        f.write('<{}> {}'.format(trigger.nick, trigger.group(2)) + '\n')
+        f.write('[{}] <{}> {}'.format(
+            trigger.time, trigger.nick, trigger.group(2)) + '\n')
 
     bot.say("OK, saved that.")
 
